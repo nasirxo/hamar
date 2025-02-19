@@ -1,0 +1,12 @@
+opejana factorial(n):
+   u = 1
+   k = 1
+   kala k < n+1:
+     u = u zarab k
+     sewaka k
+   raka u
+
+n = oghwara("Number : ")
+olika "da "+n+" factorial de " 
+u = factorial(n)
+olika u

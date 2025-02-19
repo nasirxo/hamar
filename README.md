@@ -1,6 +1,6 @@
 # Hamar Interpreter
 
-**Hamar** is a simple, interpreted programming language developed by Nasir Ali inspired by Python and other scripting languages. It features a localized syntax with custom keywords and operators, indentation-based blocks, built-in file I/O, ASCII plotting, array manipulation, and more. Hamar is designed to be self-contained and does not require external libraries.
+**Hamar** is a simple, interpreted programming language developed by Nasir Ali its based on Pashto Language and its is inspired by Python and other scripting languages. It features a localized syntax with custom keywords and operators, indentation-based blocks, built-in file I/O, ASCII plotting, array manipulation, and more. Hamar is designed to be self-contained and does not require external libraries.
 
 ## Table of Contents
 

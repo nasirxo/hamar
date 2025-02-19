@@ -1,0 +1,6 @@
+n = oghwara("Number Enter ka : ")
+
+u = n zarab n
+
+olika n + " square de " + u
+
