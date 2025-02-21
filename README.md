@@ -1,10 +1,15 @@
 # Hamar Interpreter
 
-**Hamar** is a simple, interpreted programming language developed by Nasir Ali its based on Pashto Language and its is inspired by Python and other scripting languages. It features a localized syntax with custom keywords and operators, indentation-based blocks, built-in file I/O, ASCII plotting, array manipulation, and more. Hamar is designed to be self-contained and does not require external libraries.
+**Hamar** is a simple, interpreted programming language developed by Nasir Ali, inspired by Python and designed with Pashto-language keywords. It features indentation-based blocks, built-in file I/O, ASCII plotting, array manipulation, and an interactive REPL. Hamar is self-contained and emphasizes simplicity.
+
+The name has a funny story behind it. While I was coding it, I designed the syntax to be similar to Python. In Pashto, "mar" means Python, so my friend Shah Faisal jokingly called it "hamar" (which is "funny"), and the name just stuck! 😂
+
+This project started as a fun experiment, but it turned into an advanced and rewarding journey where I learned a lot. After countless hours of coding and debugging, hamar is now available for both Windows and Linux!
+
 
 ## Table of Contents
 
-- [Overview](#overview)
+- [Installation](#installation)
 - [Language Features](#language-features)
   - [Data Types](#data-types)
   - [Variables](#variables)
@@ -15,201 +20,216 @@
   - [File I/O](#file-io)
   - [Plotting](#plotting)
   - [Input](#input)
-- [Program Structure and Syntax](#program-structure-and-syntax)
+  - [Modules](#modules)
+- [Built-in Functions](#built-in-functions)
 - [Examples](#examples)
-- [Installation and Compilation](#installation-and-compilation)
-- [Repository Setup on GitHub](#repository-setup-on-github)
+- [Interactive Shell](#interactive-shell)
+- [Extending with Native Functions](#extending-with-native-functions)
 - [Contributing](#contributing)
 - [License](#license)
 - [Contact](#contact)
 
-## Overview
+---
 
-Hamar is an interpreted language with an emphasis on simplicity and ease-of-use. It uses indentation to define blocks (like Python) and incorporates several unique, localized keywords and operators. In addition to basic arithmetic and control structures, Hamar offers built-in functions for file I/O, ASCII plotting, and array manipulation.
+## Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/nasirxo/hamar
+   cd hamar
+   ```
+
+2. Run the interpreter:
+   ```bash
+   ./hamr
+   ```
+
+**Dependencies**:
+- On Ubuntu/Debian, install `libreadline-dev`:
+  ```bash
+  sudo apt-get install libreadline-dev
+  ```
+
+---
 
 ## Language Features
 
 ### Data Types
-
-- **Integer:** e.g., `42`
-- **Double:** e.g., `3.14`
-- **String:** e.g., `"Hello"` (supports both single and double quotes)
-- **Array:** e.g., `(1, 2, 3)` creates an array of numbers (or strings)
-- **File Object:** Created using `kolawka(filename, mode)`  
-  (mode `0` for reading, mode `1` for writing)
+- **Integer**: `42`
+- **Double**: `3.14`
+- **String**: `"Hello"` or `'World'`
+- **Array**: `(1, "two", 3.0)`
+- **File Object**: Created via `kolawka(filename, mode)`
 
 ### Variables
-
-Variables are declared using assignment:
-
+Assign values directly:
 ```hamar
 a = 10
-name = "Hamar"
+text = "Hamar"
 nums = (1, 2, 3)
 ```
 
-Variable names must begin with a letter and may include letters, numbers, and underscores.
-
 ### Operators
-
-Hamar supports the following operators:
-
-- Addition: `+` or keyword `jama`
-- Subtraction: `-` or keywords `manfi`
-- Multiplication: `*` or `zarab`
-- Division: `/` or `takseem`
-- Power: `^`
-- Modulo: `%` or `takseembaki`
-- String Concatenation: `_`  
-  (If either operand is a string, the operation concatenates them.)
-- Member Access: `.`  
-  (Used to call methods on objects such as file objects or arrays.)
+| Operation       | Syntax          | Example                   |
+|-----------------|-----------------|---------------------------|
+| Addition        | `+` or `jama`   | `5 + 3` → `8`             |
+| Subtraction     | `-` or `manfi`  | `10 - 4` → `6`            |
+| Multiplication  | `*` or `zarab`  | `2 * 3` → `6`             |
+| Division        | `/` or `takseem`| `10 / 2` → `5`            |
+| Modulo          | `%` or `takseembaki` | `7 % 3` → `1`       |
+| Concatenation   | `_`             | `"Hello" _ "Hamar"` → `"HelloHamar"` |
+| Member Access   | `.`             | `file.lika("text")`       |
 
 ### Control Structures
 
-#### If Statements
-Use the `ko` keyword:
+#### If Statements (`ko`)
 ```hamar
 ko a > 10:
-    olika "a is greater than 10"
+    olika "a is large"
 ```
 
-#### While Loops
-Use the `kala` keyword:
+#### While Loops (`kala`)
 ```hamar
-kala a < 10:
+kala a < 5:
     a = a + 1
 ```
 
-### Functions
-
-Functions are defined with `opejana` and return values with `raka`:
-
+#### For Loops (`che` and `we`)
+Iterate over arrays:
 ```hamar
-opejana square(x):
-    raka x * x
+che num we (1, 2, 3):
+    olika num
+```
 
-olika square(5)  // Outputs 25
+### Functions
+Define functions with `opejana` and return with `raka`:
+```hamar
+opejana add(a, b):
+    raka a + b
 ```
 
 ### Arrays
-
-Arrays are created by listing comma-separated values inside parentheses:
-
-```hamar
-nums = (1, 2, 3)
-olika nums[0]  // Prints 1
-```
-
-Additional built-in array functions include:
-- `addka(element)`: Appends an element to an array
-- `oshmara(array)`: Returns the length of an array
-- `jamaka(array)`: Returns the sum of numeric elements in an array
+- Create: `nums = (1, 2, 3)`
+- Access: `nums[0]` → `1`
+- Append: `nums.addka(4)`
+- Length: `oshmara(nums)`
+- Sum: `jamaka(nums)`
 
 ### File I/O
-
-Hamar provides basic file operations via the built-in function `kolawka`:
-
-#### Open a File for Reading:
-```hamar
-a = kolawka("input.txt", 0)
-```
-You can then access individual lines using indexing (e.g., `a[0]`) or split the content using `katka(separator)`.
-
-#### Open a File for Writing:
-```hamar
-b = kolawka("output.txt", 1)
-b.lika("Hello, Hamar!")
-```
-
-File Methods:
-- `lika(string)`: Writes a string to a file (only valid if the file is open in write mode)
-- `katka(separator)`: Splits file content by the given separator (only valid if the file is open in read mode)
+- **Read Mode** (`0`):
+  ```hamar
+  file = kolawka("data.txt", 0)
+  content = file.katka("\n")  // Split by newline
+  ```
+- **Write Mode** (`1`):
+  ```hamar
+  file = kolawka("output.txt", 1)
+  file.lika("Hello, Hamar!")
+  ```
 
 ### Plotting
-
-Hamar can generate ASCII plots using the built-in `plot` function:
-
+Generate ASCII plots with `plot`:
 ```hamar
-plot("f", x_min, x_max, width, height)
-```
+opejana f(x):
+    raka x * x
 
-This command:
-- Takes a function name (as a string) and samples the function over the x-range [x_min, x_max]
-- Draws the plot in a grid of the specified width and height
-- Displays borders and axis labels (with numerical markers) on both axes
+plot("f", 0, 10, 40, 10)  // Plots f(x) from 0 to 10
+```
 
 ### Input
-
-Use `oghwara(prompt)` to read input from the user:
-
+Read user input with `oghwara`:
 ```hamar
-name = oghwara("Enter your name: ")
-olika "Welcome, " _ name
+name = oghwara("Enter name: ")
+olika "Hello, " _ name
 ```
 
-## Program Structure and Syntax
-
-- Statements are written one per line
-- Indentation is used to define blocks (for functions, if statements, loops)
-- Comments start with `//` and continue until the end of the line
-- Functions and control structures require a header ending with a colon (`:`) followed by an indented block
-
-Example Structure:
+### Modules
+Import other Hamar files using `import` or `rawala`:
 ```hamar
-// Function to greet the user
-opejana greet(name):
-    olika "Hello, " _ name
-
-// Main program
-userName = oghwara("Enter your name: ")
-greet(userName)
+import "math_helpers"  // Imports math_helpers.hamar
 ```
+
+---
+
+## Built-in Functions
+
+| Function         | Description                              | Example                     |
+|------------------|------------------------------------------|-----------------------------|
+| `jorkanumbers`   | Generate a range                         | `jorkanumbers(1, 5)` → `(1,2,3,4)` |
+| `abs`            | Absolute value                           | `abs(-5)` → `5`             |
+| `max`/`min`      | Maximum/minimum of values or array       | `max(2, 5, 3)` → `5`        |
+| `ohaya`          | List directory contents                  | `ohaya()` → `["file1", "dir"]` |
+| `kolawka`        | Open a file                              | `kolawka("file.txt", 0)`    |
+
+---
+
+## Interactive Shell Commands
+- `ozaa` or `exit`: Quit the interpreter.
+- `safaka` or `rwakeka`: Clear the screen.
+- `ohaya` or `ls`: List directory contents.
+
+---
+
+## Extending with Native Functions
+Hamar supports native C++ functions. Example:
+```cpp
+// Register a function in C++
+Value native_add(const vector<Value>& args) {
+    return Value(args[0].intValue + args[1].intValue);
+}
+
+int main() {
+    nativeFunctions["add"] = native_add;
+    // ...
+}
+```
+Recompile to use in Hamar scripts.
+
+---
 
 ## Examples
 
-### Function & Plotting Example
+### For Loop with Range
+```hamar
+che i we jorkanumbers(0, 5):
+    olika i  // Prints 0,1,2,3,4
+```
+
+### Importing Modules
+**math.hamar**:
 ```hamar
 opejana square(x):
     raka x * x
-
-plot("square", 0, 10, 40, 10)
 ```
-
-### File I/O Example
+**main.hamar**:
 ```hamar
-// Open a file for writing and write to it
-a = kolawka("output.txt", 1)
-a.lika("Hello, Hamar!")
-
-// Open the same file for reading and display the first line
-b = kolawka("output.txt", 0)
-olika b[0]
+import "math"
+olika square(5)  // Output: 25
 ```
 
-### Array Operations Example
+### File Operations
 ```hamar
-nums = (1, 2, 3)
-nums.addka(4)
-olika nums           // Output: [1, 2, 3, 4]
-olika oshmara(nums)  // Outputs the length: 4
-olika jamaka(nums)   // Outputs the sum: 10
+// Write to file
+file = kolawka("log.txt", 1)
+file.lika("Log entry")
+
+// Read and split content
+file = kolawka("log.txt", 0)
+lines = file.katka("\n")
+olika lines[0]
 ```
 
+---
 
 ## Contributing
+Contributions are welcome! Fork the repository, create a feature branch, and submit a pull request. For major changes, open an issue first.
 
-Contributions are welcome! Please:
-1. Fork the repository
-2. Create a new branch for your feature/bug fix
-3. Open a pull request
-
-For major changes, open an issue first to discuss your idea.
+---
 
 ## License
+MIT License. See [LICENSE](LICENSE) for details.
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+---
 
 ## Contact
-
-For questions or feedback, contact the developer at nasiraliphy@gmail.com
+Nasir Ali – nasiraliphy@gmail.com
