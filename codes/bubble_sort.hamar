@@ -1,0 +1,19 @@
+// Bubble sort: sorts an array in ascending order.
+opejana bubbleSort(arr):
+    n = oshmara(arr)
+    i = 0
+    kala i warokiwe (n manfi 1):
+        j = 0
+        kala j warokiwe (n manfi i manfi 1):
+            // If element at j is greater than element at j+1, swap them.
+            ko arr[j] > arr[j+1]:
+                temp = arr[j]
+                arr[j] = arr[j+1]
+                arr[j+1] = temp
+            sewaka j
+        sewaka i
+    raka arr
+
+// Test bubbleSort.
+unsorted = (5, 2, 9, 1, 5, 6)
+olika "Sorted array: " _ bubbleSort(unsorted)

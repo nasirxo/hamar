@@ -1,0 +1,8 @@
+// Compute the Greatest Common Divisor (GCD) of a and b using Euclid's algorithm.
+opejana gcd(a, b):
+    ko b barabar 0:
+        raka a
+    raka gcd(b, a % b)
+
+// Test gcd.
+olika "GCD of 48 and 18 is " _ gcd(48, 18)

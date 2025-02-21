@@ -1,0 +1,27 @@
+// Solve a quadratic equation: a*x^2 + b*x + c = 0.
+// If the discriminant is negative, returns a message indicating no real solutions.
+// Otherwise, returns a tuple (x1, x2) with the two roots.
+opejana solveQuadratic(a, b, c):
+    // Compute the discriminant: disc = b*b - 4*a*c
+    disc = (b zarab b) manfi (4 zarab a zarab c)
+    // Check if discriminant is negative.
+    ko disc < 0:
+         raka "No real solutions"
+    // Compute the square root of the discriminant.
+    sqrt_disc = sqrt(disc)
+    // Compute the roots:
+    // x1 = (-b + sqrt_disc) / (2*a)
+    // x2 = (-b - sqrt_disc) / (2*a)
+    x1 = ((0 manfi b) jama sqrt_disc) taksem (2 zarab a)
+    x2 = ((0 manfi b) manfi sqrt_disc) taksem (2 zarab a)
+    raka (x1, x2)
+
+// Main Program:
+// Get coefficients from the user.
+a = oghwara("Enter coefficient a: ")
+b = oghwara("Enter coefficient b: ")
+c = oghwara("Enter coefficient c: ")
+
+// Solve the quadratic equation and print the solutions.
+solution = solveQuadratic(a, b, c)
+olika "The solutions are: " _ solution

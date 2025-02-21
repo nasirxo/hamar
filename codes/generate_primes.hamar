@@ -1,0 +1,25 @@
+// Generate all primes up to a given number
+opejana primes_up_to(n):
+    primes = ()
+    ko n > 2 ya n == 2:
+        primes.addka(2)
+    num = 3
+    kala num < n:
+        sahi_flag = sahi
+        div = 2
+        kala div * div < num:
+            ko num % div == 0:
+                sahi_flag = ghalat
+                break
+            div = div + 1
+        ko sahi_flag barabar sahi:
+            primes.addka(num)
+        num = num + 2
+    raka primes
+
+// Example usage
+n = oghwara("Find primes up to: ")
+olika "Primes up to", n, "are:"
+primes = primes_up_to(n)
+for p in primes:
+    olika p

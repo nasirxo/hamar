@@ -1,0 +1,16 @@
+// classifyBandgap: Given a bandgap (g), returns a string describing the material type.
+opejana classifyBandgap(g):
+    // If g equals 0, then it's a metal.
+    ko g barabar 0:
+        raka "Metal"
+    // If g is greater than 0 AND less than 2, then it's a semiconductor.
+    ko (g > 0) ow (g < 2):  // 'ow' here is assumed to be logical AND
+        raka "Semiconductor"
+    // Otherwise, it's an insulator.
+    raka "Insulator"
+
+// Main Program:
+// Prompt the user for the bandgap value.
+g = oghwara("Enter bandgap (in eV): ")
+// Print the material classification.
+olika "The material is: " _ classifyBandgap(g)

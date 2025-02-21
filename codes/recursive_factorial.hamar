@@ -1,0 +1,8 @@
+// Recursive factorial: n! = n * (n-1)!, with 0! = 1.
+opejana factorial(n):
+    ko n barabar 0:
+        raka 1
+    raka n zarab factorial(n manfi 1)
+
+// Test the factorial function.
+olika "Factorial of 5 is " _ factorial(5)

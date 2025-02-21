@@ -1,0 +1,66 @@
+// Function: isPrime
+// Returns sahi (true) if i is prime, otherwise ghalat.
+opejana isPrime(i):
+    ko i < 2:
+        raka ghalat
+    j = 2
+    kala j warokiwe i:
+        // If i modulo j equals 0, then i is not prime.
+        ko i % j barabar 0:
+            raka ghalat
+        sewaka j
+    raka sahi
+
+// Function: primes
+// Returns an array of all prime numbers less than n.
+opejana primes(n):
+    result = ()         // Initialize an empty array.
+    i = 2
+    kala i warokiwe n:
+        ko isPrime(i) barabar sahi:
+            result.addka(i)
+        sewaka i
+    raka result
+
+// Function: fibonacci
+// Returns an array containing the first n Fibonacci numbers.
+opejana fibonacci(n):
+    ko n barabar 0:
+        raka ()
+    ko n barabar 1:
+        raka (0)
+    fibs = (0, 1)
+    i = 2
+    kala i warokiwe n:
+        // Compute next Fibonacci number = last + second-to-last.
+        next = fibs[-1] jama fibs[-2]
+        fibs.addka(next)
+        sewaka i
+    raka fibs
+
+// Function: pyramid
+// Prints an ASCII pyramid pattern of height n.
+opejana pyramid(n):
+    i = 1
+    kala i warokiwe n:
+        // Compute number of spaces and stars for this row.
+        spaces = n manfi i
+        stars = (2 zarab i) manfi 1
+        line = ""
+        j = 1
+        kala j warokiwe spaces:
+            line = line _ " "
+            sewaka j
+        j = 1
+        kala j warokiwe stars:
+            line = line _ "*"
+            sewaka j
+        // Print the constructed row.
+        olika line
+        sewaka i
+    raka 0
+
+// ----- Test calls -----
+olika "Primes below 50: " _ primes(50)
+olika "First 10 Fibonacci numbers: " _ fibonacci(10)
+pyramid(5)

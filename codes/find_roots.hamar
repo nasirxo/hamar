@@ -1,0 +1,55 @@
+// Newton–Raphson method to find a root of f(x)=0.
+// Parameters:
+//   f: the function for which to find a root,
+//   df: the derivative of f,
+//   x0: initial guess,
+//   iterations: maximum number of iterations.
+// Returns an approximation for the root.
+opejana newton(f, df, x0, iterations):
+    x = x0
+    i = 1
+    kala i warokiwe iterations:
+        // Update: x = x - f(x)/df(x)
+        x = x manfi ( f(x) taksem df(x) )
+        sewaka i
+    raka x
+
+// Bisection method to find a root of f(x)=0 on an interval [a, b].
+// Parameters:
+//   f: the function for which to find a root,
+//   a, b: endpoints with f(a)*f(b) < 0,
+//   tolerance: acceptable error,
+//   iterations: maximum iterations.
+// Returns an approximation for the root.
+opejana bisection(f, a, b, tolerance, iterations):
+    // Ensure the interval is valid.
+    ko (f(a) zarab f(b)) > 0:
+        raka "Invalid interval"
+    i = 1
+    kala i warokiwe iterations:
+        mid = (a jama b) taksem 2
+        // If the absolute value of f(mid) is less than tolerance, we found a root.
+        ko abs(f(mid)) < tolerance:
+            raka mid
+        // If f(a) and f(mid) have the same sign, update a.
+        ko (f(a) zarab f(mid)) > 0:
+            a = mid
+        ko (f(a) zarab f(mid)) < 0 ya (f(a) zarab f(mid)) == 0:
+            b = mid
+        sewaka i
+    raka (a jama b) taksem 2
+
+// -------------------------
+// Example Usage:
+// Solve f(x) = x*x - 2 = 0, whose root is sqrt(2) ≈ 1.41421356.
+
+// Function f(x) = x*x - 2.
+opejana f(x):
+    raka x zarab x manfi 2
+
+// Derivative of f(x): df(x) = 2*x.
+opejana df(x):
+    raka 2 zarab x
+
+olika "Newton's method: Root = " _ newton(f, df, 1.0, 50)
+olika "Bisection method: Root = " _ bisection(f, 0.0, 2.0, 0.000001, 50)

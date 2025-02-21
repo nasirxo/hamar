@@ -1,0 +1,12 @@
+opejana squareroot(n):
+   k = 1.0
+   j = 1
+   kala j warokiwe 1000:
+     f = k zarab k manfi n
+     diff = 2 zarab k
+     k = k manfi f taksem diff
+     sewaka j
+   raka k
+
+n = oghwara("Number Olika : ")
+olika "Da " _ "Squareroot de " _ squareroot(n)

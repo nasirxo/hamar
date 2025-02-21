@@ -1,0 +1,22 @@
+opejana integrate(f, a, b, n):
+    // Compute step size h = (b - a) / n
+    h = (b manfi a) taksem n
+    // Start with f(a) + f(b)
+    s = f(a) jama f(b)
+    i = 1
+    // Loop from 1 to n-1
+    kala i warokiwe (n manfi 1):
+        // Compute x = a + i/n * (b - a)
+        x = a jama i taksem n zarab (b manfi a)
+        // Add 2*f(x) to s
+        s = s jama (2 zarab f(x))
+        sewaka i
+    // Return (h/2) * s
+    raka (h taksem 2) zarab s
+
+// Identity function (returns its input)
+opejana f(x):
+    raka x zarab x
+
+// Compute the integral of f from 0 to 1 using 1000 intervals.
+olika integrate(f, 0, 1, 10000)

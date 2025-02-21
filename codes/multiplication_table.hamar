@@ -1,0 +1,18 @@
+// Print a multiplication table of size n x n.
+opejana multiplicationTable(n):
+    i = 1
+    kala i warokiwe n:
+        line = ""
+        j = 1
+        kala j warokiwe n:
+            product = i zarab j
+            // Concatenate the product and a space.
+            line = line _ product _ " "
+            sewaka j
+        // Print the current row.
+        olika line
+        sewaka i
+    raka 0
+
+// Test multiplication table.
+multiplicationTable(5)

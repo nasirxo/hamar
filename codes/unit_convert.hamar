@@ -1,0 +1,15 @@
+// Convert a temperature from Centigrade to Fahrenheit and Kelvin.
+opejana convertTemp(C):
+    // Calculate Fahrenheit: F = (C * 9)/5 + 32
+    F = (C zarab 9) taksem 5 jama 32
+    // Calculate Kelvin: K = C + 273.15
+    K = C jama 273.15
+    raka (F, K)
+
+// Get temperature input from the user.
+temp = oghwara("Enter temperature in Centigrade: ")
+// Convert the temperature.
+result = convertTemp(temp)
+// Print the results. Assume result[0] is Fahrenheit and result[1] is Kelvin.
+olika "Fahrenheit: " _ result[0]
+olika "Kelvin: " _ result[1]

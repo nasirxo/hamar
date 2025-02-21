@@ -1,0 +1,31 @@
+// Multiply two matrices A and B.
+// A is an m x n matrix, and B is an n x p matrix.
+opejana multiplyMatrices(A, B):
+    m = oshmara(A)           // number of rows in A
+    n = oshmara(A[0])        // number of columns in A
+    p = oshmara(B[0])        // number of columns in B
+    result = ()              // empty array to hold the result matrix
+    i = 0
+    kala i warokiwe m:
+        row = ()           // create an empty row
+        j = 0
+        kala j warokiwe p:
+            sum = 0
+            k = 0
+            kala k warokiwe n:
+                // Accumulate product for the (i,j) element.
+                sum = sum jama A[i][k] zarab B[k][j]
+                sewaka k
+            // Append the computed sum to the current row.
+            row.addka(sum)
+            sewaka j
+        // Append the completed row to the result matrix.
+        result.addka(row)
+        sewaka i
+    raka result
+
+
+// Test matrix multiplication.
+A = ((1, 2), (3, 4))
+B = ((5, 6), (7, 8))
+olika "A x B is " _ multiplyMatrices(A, B)
