@@ -1,0 +1,49 @@
+// Function to print a star pattern
+opejana print_pattern(rows):
+    che row we jorkanumbers(0, rows):
+        // Create spaces and stars for each row
+        spaces = rows - row - 1
+        stars = 2 * row + 1
+        
+        line = ""
+        che k we jorkanumbers(0, spaces):
+            line = line _ " "
+        
+        che k we jorkanumbers(0, stars):
+            line = line _ "*"
+        
+        olika line
+
+// Function to create a repeating character pattern
+opejana repeat_string(char, times):
+    result = ""
+    che n we jorkanumbers(0, times):
+        result = result _ char
+    raka result
+
+// Function to make a diamond pattern
+opejana diamond(size):
+    // Upper half
+    che i we jorkanumbers(1, size + 1):
+        spaces = repeat_string(" ", size - i)
+        stars = repeat_string("*", 2 * i - 1)
+        olika spaces _ stars
+    
+    // Lower half
+    che i we jorkanumbers(size - 1, 0, -1):
+        spaces = repeat_string(" ", size - i)
+        stars = repeat_string("*", 2 * i - 1)
+        olika spaces _ stars
+
+// Main program
+olika "Simple Triangle Pattern:"
+print_pattern(5)
+
+olika "Custom Character Pattern:"
+che i we jorkanumbers(1, 6):
+    olika repeat_string("#", i)
+
+olika "Diamond Pattern:"
+diamond(4)
+
+

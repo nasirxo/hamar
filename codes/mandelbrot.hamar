@@ -1,0 +1,52 @@
+opejana mandelbrot(width, height, max_iter):
+    // Set up coordinate system parameters
+    real_min = -2.0
+    real_max = 1.0
+    imag_min = -1.5
+    imag_max = 1.5
+    
+    result = ""
+    
+    che y we jorkanumbers(0, height):
+        line = ""
+        che x we jorkanumbers(0, width):
+            // Convert pixel coordinates to complex numbers
+            real = real_min + (x / width) * (real_max - real_min)
+            imag = imag_min + (y / height) * (imag_max - imag_min)
+            
+            // Initialize complex numbers
+            z_real = 0.0
+            z_imag = 0.0
+            iter = 0
+            
+            // Mandelbrot iteration
+            kala iter < max_iter:
+                z_real_sq = z_real * z_real
+                z_imag_sq = z_imag * z_imag
+                
+                // Break if sequence diverges
+                ko z_real_sq + z_imag_sq > 4:
+                    hatmka
+             
+                // Calculate next iteration
+                temp = z_real_sq - z_imag_sq + real
+                z_imag = 2 * z_real * z_imag + imag
+                z_real = temp
+                iter = iter + 1
+            
+            // Map iteration count to ASCII characters
+            chars = (" ", ".", ":", "-", "=", "+", "*", "#", "%", "@")
+            line = line _ chars[iter % 10]
+        
+        result = result _ line _ "\n"
+    
+    raka result
+
+// Main program parameters
+width = 80
+height = 40
+max_iter = 100
+
+// Generate and display the fractal
+output = mandelbrot(width, height, max_iter)
+olika output
