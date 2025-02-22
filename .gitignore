@@ -1,0 +1,4 @@
+build_deb.py
+build_windows.py
+dist/
+build/

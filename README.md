@@ -37,11 +37,12 @@ This project started as a fun experiment, but it turned into an advanced and rew
    ```bash
    git clone https://github.com/nasirxo/hamar
    cd hamar
+   sudo apt install ./hamar_1.5.2_amd64.deb
    ```
 
 2. Run the interpreter:
    ```bash
-   ./hamr
+   hamar
    ```
 
 **Dependencies**:
