@@ -82,10 +82,12 @@ nums = (1, 2, 3)
 
 ### Control Structures
 
-#### If Statements (`ko`)
+#### If Statements (`ko`) & Else Statements (`jo` or `geni`)
 ```hamar
 ko a > 10:
     olika "a is large"
+geni:
+    olika "a is small"
 ```
 
 #### While Loops (`kala`)
@@ -144,9 +146,9 @@ olika "Hello, " _ name
 ```
 
 ### Modules
-Import other Hamar files using `import` or `rawala`:
+Import other Hamar files using `rawala`:
 ```hamar
-import "math_helpers"  // Imports math_helpers.hamar
+rawala "math_helpers"  // Imports math_helpers.hamar
 ```
 
 ---
@@ -203,7 +205,7 @@ opejana square(x):
 ```
 **main.hamar**:
 ```hamar
-import "math"
+rawala math
 olika square(5)  // Output: 25
 ```
 
@@ -438,8 +440,8 @@ These functions work similarly to their Python counterparts, making it easier fo
 ### Numerical Differentiation
 ```hamar
 # Differentiate a function
-def f(x):
-    return x*x
+opejana f(x):
+    raka x*x
 
 # Get derivative at x = 2
 derivative = diff("f", 2)
@@ -454,8 +456,8 @@ olika dy  # Will print [1, 2, 3, 4, 5]
 ### Numerical Integration
 ```hamar
 # Integrate a function
-def f(x):
-    return x*x
+opejana f(x):
+    raka x*x
 
 # Integrate from 0 to 1
 area = integrate("f", 0, 1)
