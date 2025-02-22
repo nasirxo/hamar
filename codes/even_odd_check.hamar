@@ -1,6 +1,6 @@
 n = oghwara("Olika Number : ")
 
-ko n % 2 barabar 0:
+ko n taksembaki 2 barabar 0:
   olika n + " even number day "
 geni:
   olika n + " odd number day "

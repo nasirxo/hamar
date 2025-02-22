@@ -388,7 +388,137 @@ system("dir")
 system("cls")  // Clear screen
 ```
 
-These examples demonstrate the new capabilities in Hamar 1.4.0. Each feature has been designed to be intuitive while providing powerful functionality.
+## New Core Functions
+
+Hamar now includes more Python-like core functions:
+
+1. Binary and Hexadecimal Conversion
+   ```hamar
+   olika bin(42)    // Output: "0b101010"
+   olika hex(42)    // Output: "0x2A"
+   olika bin(-42)   // Output: "-0b101010"
+   ```
+
+2. Variable Deletion
+   ```hamar
+   x = 42
+   oseza("x")       // Deletes variable x
+   ko x:            // Will raise error: undefined variable
+       olika x
+   ```
+
+3. Type Checking
+   ```hamar
+   olika type(42)        // Output: "int"
+   olika type("hello")   // Output: "string"
+   olika type((1,2,3))   // Output: "array"
+   olika type({"a":1})   // Output: "dict"
+   ```
+
+4. Number Rounding
+   ```hamar
+   olika round(3.7)      // Output: 4
+   olika round(3.1415, 2)  // Output: 3.14
+   ```
+
+5. Character Conversions
+   ```hamar
+   olika ord("A")        // Output: 65
+   olika chr(65)         // Output: "A"
+   
+   // Use in loops
+   che i we jorkanumbers(65, 91):
+       olika chr(i)      // Prints A through Z
+   ```
+
+These functions work similarly to their Python counterparts, making it easier for Python developers to transition to Hamar.
+
+# Numerical Methods and Scientific Computing
+
+### Numerical Differentiation
+```hamar
+# Differentiate a function
+def f(x):
+    return x*x
+
+# Get derivative at x = 2
+derivative = diff("f", 2)
+olika derivative  # Will print ~4.0
+
+# Differentiate array data
+y = [0, 1, 4, 9, 16]  # y = x^2 at x = 0,1,2,3,4
+dy = diff(y, 1)  # Step size = 1
+olika dy  # Will print [1, 2, 3, 4, 5]
+```
+
+### Numerical Integration
+```hamar
+# Integrate a function
+def f(x):
+    return x*x
+
+# Integrate from 0 to 1
+area = integrate("f", 0, 1)
+olika area  # Will print ~0.333 (1/3)
+
+# Integrate array data
+y = [0, 1, 4, 9, 16]  # y = x^2 at x = 0,1,2,3,4
+area = integrate(y, 0, 4)  # Integrate from x=0 to x=4
+olika area  # Will print area under discrete points
+```
+
+### Special Mathematical Functions
+```hamar
+# Gamma function
+g = gamma(5)  # Returns 24 (4!)
+
+# Greatest Common Divisor
+gcd_val = gcd(12, 18)  # Returns 6
+
+# Least Common Multiple
+lcm_val = lcm(12, 18)  # Returns 36
+
+# Highest Common Factor (same as GCD)
+hcf_val = hcf(12, 18)  # Returns 6
+```
+
+### VASP POSCAR Handling
+```hamar
+# Read POSCAR file
+structure = read_poscar("POSCAR")
+
+# Access and modify structure
+lattice = structure[1]
+lattice[0][0] = lattice[0][0] * 1.02  # Expand x direction by 2%
+
+# Write modified structure
+write_poscar(structure, "POSCAR_modified")
+
+# Analyze k-point symmetry
+kpoints = kpoint_analysis(structure)
+olika "Lattice type:", kpoints[0]
+olika "Special k-points:", kpoints[1]
+olika "High-symmetry paths:", kpoints[2]
+```
+
+### Matrix Visualization
+```hamar
+# Create a matrix
+matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+
+# Visualize with color-coded values
+visualize_matrix(matrix)
+```
+
+These features complement the existing functionality in Hamar, providing tools for:
+- Numerical differentiation and integration
+- Special mathematical functions
+- VASP file format handling
+- Matrix visualization
+- K-point symmetry analysis for DFT calculations
+
+
+These examples demonstrate the new capabilities in Hamar 1.5.2. Each feature has been designed to be intuitive while providing powerful functionality.
 
 ## Bug Fixes
 - Fixed dictionary value dereferencing

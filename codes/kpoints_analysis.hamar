@@ -1,0 +1,18 @@
+// Read POSCAR file
+structure = read_poscar("POSCAR")
+
+// Analyze k-point symmetry
+kpoints = kpoint_analysis(structure)
+
+// Access results
+lattice_type = kpoints[0]
+special_points = kpoints[1]  // List of [point_name, coordinates]
+paths = kpoints[2]          // List of high-symmetry paths
+
+olika "Lattice type: " _ lattice_type
+olika "Special k-points:"
+che point we special_points:
+    olika point[0] _ " at " _ point[1]
+olika "Suggested high-symmetry paths:"
+che path we paths:
+    olika " -> " _ path

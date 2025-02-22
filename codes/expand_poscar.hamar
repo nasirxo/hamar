@@ -1,0 +1,25 @@
+// Read a POSCAR file
+structure = read_poscar("POSCAR")
+
+// Access structure data
+title = structure[0]
+lattice = structure[1]
+elements = structure[2]
+counts = structure[3]
+positions = structure[4]
+
+
+opejana M(x,u):
+  raka x * u
+
+// Modify the structure
+// For example, scale the lattice
+che i we jorkanumbers(0,3):
+    che j we jorkanumbers(0,3):
+        INITIAL = lattice[i][j]
+        lattice[i][j] = M(INITIAL,1.02)
+
+
+// Write modified structure
+modified = (title, lattice, elements, counts, positions)
+write_poscar(modified, "POSCAR_modified")
