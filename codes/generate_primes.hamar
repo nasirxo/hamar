@@ -10,7 +10,7 @@ opejana primes_up_to(n):
         kala div * div < num:
             ko num % div == 0:
                 sahi_flag = ghalat
-                break
+                hatmka
             div = div + 1
         ko sahi_flag barabar sahi:
             primes.addka(num)
@@ -21,5 +21,5 @@ opejana primes_up_to(n):
 n = oghwara("Find primes up to: ")
 olika "Primes up to", n, "are:"
 primes = primes_up_to(n)
-for p in primes:
+che p we primes:
     olika p

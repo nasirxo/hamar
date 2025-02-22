@@ -1,0 +1,3 @@
+loadcode("prime_check")
+primes = callfunc("prime_check", "generate_primes", 10, 50)
+olika(primes)
