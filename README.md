@@ -219,6 +219,194 @@ lines = file.katka("\n")
 olika lines[0]
 ```
 
+# Hamar 1.4.0 Release Notes
+
+## New Features with Examples
+
+1. Dictionary Improvements
+   ```hamar
+   // Create a dictionary
+   dict = {"name": "Ali", "age": 25}
+   
+   // Access values
+   olika dict["name"]    // Output: Ali
+   
+   // Add/update values
+   dict["city"] = "Peshawar"
+   dict["age"] = 26
+   
+   // Check if key exists
+   ko "name" we dict:
+       olika "Name exists!"
+   ```
+
+2. Statistical Functions
+   ```hamar
+   nums = (2, 4, 4, 4, 5, 5, 7)
+   
+   olika mean(nums)      // Output: 4.428571
+   olika median(nums)    // Output: 4
+   olika mode(nums)      // Output: 4
+   olika variance(nums)  // Output: 2.2857
+   olika stddev(nums)    // Output: 1.5118
+   olika range(nums)     // Output: 5
+   
+   // Get complete statistical summary
+   stats = summary(nums)
+   olika stats  // Shows min, max, mean, median, mode, variance, stddev
+   ```
+
+3. Mathematical Functions
+   ```hamar
+   // Find root of equation f(x) = x^2 - 4
+   opejana f(x):
+       raka x * x - 4
+   
+   root = findroot(f, 1, 0.0001)  // Start at x=1, tolerance=0.0001
+   olika root  // Output: 2.0
+   
+   // Curve fitting
+   x = (1, 2, 3, 4, 5)
+   y = (2.1, 4.2, 6.1, 8.2, 10.1)
+   coeffs = curvefit(x, y, 1)  // Linear fit
+   olika coeffs  // Output: approximate (2, 0.1)
+   
+   // Eigenvalues
+   matrix = ((4, -2), (-2, 4))
+   values = eigenvalue(matrix)
+   olika values  // Output: (6, 2)
+   ```
+
+4. Array Operations
+   ```hamar
+   // Parallel mapping
+   nums = (1, 2, 3, 4, 5)
+   opejana square(x):
+       raka x * x
+   
+   squares = map(square, nums)
+   olika squares  // Output: (1, 4, 9, 16, 25)
+   
+   // Visualize array
+   plotarray(nums)
+   /*
+   Output:
+   5 |    *
+   4 |   *
+   3 |  *
+   2 | *
+   1 |*
+   */
+   
+   // Random selection
+   olika choice(nums)  // Outputs random element from nums
+   ```
+
+5. File Operations
+   ```hamar
+   // Read CSV file
+   data = readcsv("data.csv")
+   olika data[0]  // First row
+   
+   // Improved file handling
+   file = kolawka("test.txt", 1)
+   ko file.lika("Hello"):  // Returns success status
+       olika "Write successful"
+   ```
+
+6. System Integration
+   ```hamar
+   // Execute system commands
+   system("ls -l")
+   
+   // Dynamic code loading (Linux)
+   loadcode("mylib.so")
+   result = callfunc("my_function", 42)
+   ```
+
+7. Random Number Generation
+   ```hamar
+   // Integer range
+   olika random(1, 10)  // Random integer 1-10
+   
+   // Float range with better distribution
+   olika random(0.0, 1.0)  // Random float 0-1
+   ```
+
+8. Error Handling
+   ```hamar
+   // Better error messages with location
+   ko 1/0:  // Triggers error
+   /* Output:
+   Runtime Error: Division by zero
+     at test.hamar:2:5
+   
+   ko 1/0:
+      ^
+   */
+   ```
+
+## Technical Usage Examples
+
+1. Thread-safe Operations
+   ```hamar
+   // Parallel array processing
+   nums = jorkanumbers(1, 1000000)
+   result = map(square, nums)  // Processes in parallel
+   ```
+
+2. Enhanced Numeric Precision
+   ```hamar
+   // High precision calculations
+   x = 1.23456789012345
+   y = 9.87654321098765
+   olika x * y  // Maintains precision
+   ```
+
+3. Memory Management
+   ```hamar
+   // Dictionaries with complex values
+   dict = {}
+   dict["data"] = (1, 2, 3)
+   dict["nested"] = {"x": 10}
+   // Memory is properly managed
+   ```
+
+## Platform-specific Features
+
+### Linux
+```hamar
+// Dynamic library loading
+loadcode("/usr/lib/mylib.so")
+result = callfunc("process_data", (1,2,3))
+```
+
+### Windows
+```hamar
+// System commands
+system("dir")
+system("cls")  // Clear screen
+```
+
+These examples demonstrate the new capabilities in Hamar 1.4.0. Each feature has been designed to be intuitive while providing powerful functionality.
+
+## Bug Fixes
+- Fixed dictionary value dereferencing
+- Improved memory management
+- Enhanced type checking
+- Better error reporting
+
+## Technical Improvements
+- Thread-safe operations
+- Parallel processing support
+- Enhanced numeric precision
+- Better memory management with shared pointers
+
+## Platform Support
+- Full support for Linux
+- Basic support for Windows
+- Improved cross-platform compatibility
+
 ---
 
 ## Contributing
