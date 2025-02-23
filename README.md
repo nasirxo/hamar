@@ -438,6 +438,12 @@ These functions work similarly to their Python counterparts, making it easier fo
 
 # Numerical Methods and Scientific Computing
 
+## Linspace
+```hamar
+x = linspace(0, 1, 10)
+olika x  # Output: (0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9)
+```
+
 ### Numerical Differentiation
 ```hamar
 # Differentiate a function
@@ -449,9 +455,9 @@ derivative = diff("f", 2)
 olika derivative  # Will print ~4.0
 
 # Differentiate array data
-y = [0, 1, 4, 9, 16]  # y = x^2 at x = 0,1,2,3,4
+y = (0, 1, 4, 9, 16)  # y = x^2 at x = 0,1,2,3,4
 dy = diff(y, 1)  # Step size = 1
-olika dy  # Will print [1, 2, 3, 4, 5]
+olika dy  # Will print (1, 2, 3, 4, 5)
 ```
 
 ### Numerical Integration
@@ -465,7 +471,7 @@ area = integrate("f", 0, 1)
 olika area  # Will print ~0.333 (1/3)
 
 # Integrate array data
-y = [0, 1, 4, 9, 16]  # y = x^2 at x = 0,1,2,3,4
+y = (0, 1, 4, 9, 16)  # y = x^2 at x = 0,1,2,3,4
 area = integrate(y, 0, 4)  # Integrate from x=0 to x=4
 olika area  # Will print area under discrete points
 ```
@@ -507,11 +513,128 @@ olika "High-symmetry paths:", kpoints[2]
 ### Matrix Visualization
 ```hamar
 # Create a matrix
-matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+matrix = ((1, 2, 3), (4, 5, 6), (7, 8, 9))
 
 # Visualize with color-coded values
 visualize_matrix(matrix)
 ```
+
+**Hamar Interpreter v1.5.5 Update (Key Changes Only)**  
+
+---
+
+### Language Additions  
+
+1. **Urdu/Pashto Keyword Variants**  
+   | English Keyword | Urdu/Pashto Variants |  
+   |-----------------|-----------------------|  
+   | `if`            | `ko`, `agar`         |  
+   | `print`         | `olika`, `dikhao`    |  
+   | `return`        | `raka`, `wapis`      |  
+   | `break`         | `hatmka`, `rukjao`   |  
+   | `import`        | `rawala`, `utao`     |  
+   | `else`          | `warna`, `geni`      |  
+   | `for`           | `che`, `jab`         |  
+   | `in`            | `we`, `ho`           |  
+   | `and`           | `aur`, `aur`         |  
+   | `or`            | `ya`, `ya`           |  
+   | `not`           | `nahi`, `nahi`       |  
+
+
+
+   Example:  
+   ```hamar
+   agar x > 5:  
+       dikhao "X is large"  
+   warna:  
+       wapis 0  
+   ```
+
+2. **New Cryptographic Functions**  
+   ```hamar
+   # MD5 Hash  
+   hash = md5("text")  
+   # SHA256 Hash  
+   secure_hash = sha256("data")  
+   ```
+
+---
+
+### System Interaction  
+```hamar
+sleep(2.5)                # Pause execution  
+system("ls")              # Run terminal command  
+safkaro                   # Clear screen (Urdu: صفائی کرو)  
+```
+
+---
+
+### Documentation Helpers  
+```hamar
+help()                   # List all functions  
+help("md5")              # Show MD5 documentation  
+```
+
+---
+
+### Minimal Example  
+```hamar
+tareefa jama(a, b):      # Function definition  
+    wapis a + b  
+
+agar 5 > 3:  
+    dikhao md5("test")  
+warna:  
+    safkaro  
+```
+
+#String Methods Added
+
+```hamar
+# String methods
+text = "Hello, World!"
+olika text.bada()  # Output: "HELLO, WORLD!"
+olika text.chota()  # Output: "hello, world!"
+olika text.waroki()  # Output: "hello, world!"
+olika text.upper()  # Output: "HELLO, WORLD!"
+olika text.ghat()  # Output: "hello, world!"
+olika text.badha()  # Output: "HELLO, WORLD!"
+olika text.lower()  # Output: "hello, world!"
+olika text.replace("Hello", "Hi")  # Output: "Hi, World!"
+olika text.badlo("Hello", "Hi")  # Output: "Hi, World!"
+olika text.badalka("Hello", "Hi")  # Output: "Hi, World!"
+olika text.bichar(",")  # Output: ("Hello", " World!")
+olika text.beelka(",")  # Output: ("Hello", " World!")
+olika text.alagkro(",")  # Output: ("Hello", " World!")
+olika text.yozaika(("Hi", "there"))  # Output: "Hi there"
+olika text.ikata(("Hi", "there"))  # Output: "Hi there"
+olika text.split(",")  # Output: ("Hello", " World!")
+olika text.join(("Hi", "there"))  # Output: "Hi there"
+olika text.startswith("Hello")  # Output: True
+olika text.shurokegepa("Hello")  # Output: True
+olika text.hatmegepa("!")  # Output: True
+olika text.endswith("!")  # Output: True
+olika text.find("World")  # Output: 7
+olika text.pedaka("World")  # Output: 7
+olika text.dhundo("World")  # Output: 7
+olika text.pichaydhundo("World")  # Output: 7
+olika text.shataogora("World")  # Output: 7
+olika text.count("o")  # Output: 2
+olika text.gino("o")  # Output: 2
+olika text.oshmara()  # Output: 13
+olika text.slice(0, 5)  # Output: "Hello"
+olika text.cut(0, 5)  # Output: "Hello"
+olika text.reverse()  # Output: "!dlroW ,olleH"
+olika text.ulta()  # Output: "!dlroW ,olleH"
+olika text.olta()  # Output: "Hello, World!"
+olika text.length()  # Output: 13
+olika text.size()  # Output: 13
+olika text.kitna()  # Output: 13
+olika text.sumra()  # Output: 13
+```
+
+This update adds **native Urdu/Pashto syntax support** while maintaining full backward compatibility. Existing English keywords remain unchanged.
+
 
 These features complement the existing functionality in Hamar, providing tools for:
 - Numerical differentiation and integration
